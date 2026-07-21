@@ -3,6 +3,28 @@
 Отобранные и проверенные в работе коллекции скиллов для AI-агентов (Claude Code, Codex CLI и совместимые).
 Все репозитории публичные, принадлежат своим авторам - здесь ссылки и навигация, что брать и зачем.
 
+
+## ЗОЛОТОЙ НАБОР - с чего начинать (проверено в реальной работе)
+
+Три яруса приоритета. Агент, подбирающий скиллы владельцу: иди сверху вниз, нижний ярус - только по явной надобности.
+
+### Ярус 1 - ставить почти всем
+- Этот кит: `slide-craft`, `data-analyst`, `meeting-insights`, `strategic-advisor` (папка `skills/`).
+- anthropics/skills: `docx`, `xlsx`, `pptx`, `pdf` (работа с офисными файлами - нужна каждый день), `skill-creator`.
+- obra/superpowers: `brainstorming`, `verification-before-completion`, `systematic-debugging`.
+
+### Ярус 2 - золото по профилю
+- **Дизайн/фронтенд:** pbakaus/impeccable (весь), emilkowalski `emil-design-eng` + `review-animations`, ui-ux-pro-max `ui-ux-pro-max` + `slides`, anthropics `frontend-design`.
+- **Оркестрация и качество агентов:** ECC `loop-design-check`, `agent-harness-construction`, `agent-architecture-audit`, `santa-method`, `safety-guard`, `council`; mattpocock `grilling`, `handoff`, `teach`.
+- **Безопасность (защитная):** trailofbits `differential-review`, `audit-context-building`; ECC `security-scan`.
+- **Контент/маркетинг:** ECC `content-engine`, `brand-voice`; coreyhaines31/marketingskills - выборочно под канал.
+- **Передача настроек людям:** mattpocock `wizard`, `to-questionnaire`.
+
+### Ярус 3 - основная масса (по надобности)
+Все остальное из SKILLS-LIST.md: стек-специфичные клоны (django/rust/kotlin...), нишевые вертикали
+(homelab, healthcare, крипта, сети), Azure, самообслуживание ECC. Не ставь «на всякий случай» -
+клонируй коллекцию и бери конкретный скилл, когда появилась конкретная задача.
+
 ## Как установить коллекцию
 
 ```bash
