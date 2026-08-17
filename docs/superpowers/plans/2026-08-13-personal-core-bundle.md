@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Bundle exactly the 21 names listed in the approved design.
-- Do not use any file from `agent-sveta` or another client repository.
+- Do not use any file from a client-specific repository.
 - Do not redistribute skills carrying Anthropic's proprietary no-distribution terms.
 - Use only the regular hyphen character in newly written Russian prose.
 - Do not push to GitHub without a separate explicit approval from Ivan.
@@ -61,7 +61,7 @@ git commit -m "test: define public skill bundle contract"
 - Create: the 17 approved `skills/<name>/` trees listed in the design.
 
 **Interfaces:**
-- Consumes: `/home/aegis/projects/vibe-claude/skills-core/<name>/` and the four existing public skills.
+- Consumes: the private canonical skill library and the four existing public skills.
 - Produces: an exact 21-directory self-contained `skills/` tree.
 
 - [ ] **Step 1: Copy complete canonical directories**
@@ -135,7 +135,7 @@ git commit -m "feat: add portable agent operating architecture"
 
 **Files:**
 - Create: `HANDOFF.md`
-- Modify: `/home/aegis/projects/vibe-claude/PROJECTS.md`
+- Modify: the private project registry outside this public repository.
 
 **Interfaces:**
 - Consumes: completed repository.

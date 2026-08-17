@@ -31,11 +31,11 @@ EXPECTED_SKILLS = {
 }
 
 PRIVATE_MARKERS = (
-    "/home/aegis",
-    "agent-sveta",
-    "vibe-aegis",
-    "Светлан",
-    "Лемана",
+    "/home/" + "aegis",
+    "agent-" + "sveta",
+    "vibe-" + "aegis",
+    "Свет" + "лан",
+    "Лема" + "на",
 )
 
 
@@ -142,14 +142,11 @@ class BundleContractTest(unittest.TestCase):
             self.assertIn(required, setup)
 
     def test_distributable_files_contain_no_private_markers(self):
-        files = list(SKILLS.rglob("*")) + [
-            ROOT / "AGENTS.template.md",
-            ROOT / "AGENT-SETUP.md",
-            ROOT / "CODEX-SETUP-V2.md",
-            ROOT / "README.md",
-            ROOT / "THIRD_PARTY_NOTICES.md",
-        ]
+        files = list(ROOT.rglob("*"))
         for path in files:
+            relative = path.relative_to(ROOT)
+            if ".git" in relative.parts or ".worktrees" in relative.parts:
+                continue
             if not path.is_file() or path.suffix.lower() not in {".md", ".txt", ".py", ".js", ".json", ".csv"}:
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")

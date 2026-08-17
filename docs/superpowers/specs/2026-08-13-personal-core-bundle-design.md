@@ -34,7 +34,7 @@ The repository contains exactly these 21 skills:
 
 The first four are already in this repository. The remaining 17 are copied
 from Ivan's canonical `vibe-claude/skills-core` tree, preserving each complete
-skill directory. No files from `agent-sveta` or other client repositories are
+skill directory. No files from client-specific repositories are
 used.
 
 Skills whose licenses prohibit redistribution, including the saved Anthropic
