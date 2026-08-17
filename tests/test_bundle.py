@@ -83,10 +83,69 @@ class BundleContractTest(unittest.TestCase):
         self.assertIn("AGENTS.template.md", setup)
         self.assertIn("не перезаписывай", setup.lower())
 
+    def test_v2_operating_contract_is_complete(self):
+        architecture = (ROOT / "AGENTS.template.md").read_text(encoding="utf-8").lower()
+        required_clauses = (
+            "один запрос - один управляемый заход",
+            "блокирующие вопросы",
+            "не более двух",
+            "25-й минуте",
+            "45-й минуты",
+            "HANDOFF V2",
+            "120 строк",
+            "12 КБ",
+            "дедупликац",
+            "явная правка",
+            "локально",
+            "GitHub",
+            "git push",
+        )
+        for clause in required_clauses:
+            self.assertIn(clause.lower(), architecture)
+
+    def test_codex_v2_onboarding_is_self_contained_and_cross_platform(self):
+        onboarding_file = ROOT / "CODEX-SETUP-V2.md"
+        self.assertTrue(onboarding_file.is_file())
+        onboarding = onboarding_file.read_text(encoding="utf-8").lower()
+        for required in (
+            "Windows",
+            "macOS",
+            "Linux",
+            "AGENT-SETUP.md",
+            "AGENTS.template.md",
+            "21",
+            "_INDEX.md",
+            "двухфактор",
+            "GitHub",
+            "не перезаписывай",
+            "не публикуй",
+            "непроверенный остаток",
+        ):
+            self.assertIn(required.lower(), onboarding)
+
+    def test_setup_verifies_local_and_remote_durability(self):
+        setup = (ROOT / "AGENT-SETUP.md").read_text(encoding="utf-8")
+        for required in (
+            "Windows",
+            "macOS",
+            "Linux",
+            "git --version",
+            "git status",
+            "GitHub",
+            "двухфактор",
+            "локальн",
+            "приватн",
+            ".gitignore",
+            "секрет",
+            "явного подтверждения",
+        ):
+            self.assertIn(required, setup)
+
     def test_distributable_files_contain_no_private_markers(self):
         files = list(SKILLS.rglob("*")) + [
             ROOT / "AGENTS.template.md",
             ROOT / "AGENT-SETUP.md",
+            ROOT / "CODEX-SETUP-V2.md",
             ROOT / "README.md",
             ROOT / "THIRD_PARTY_NOTICES.md",
         ]
